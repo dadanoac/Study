@@ -1,0 +1,200 @@
+ * {
+ 	color: #000000;
+ }
+
+ html, body {
+ 	margin: 0px;
+ 	height: 100%;
+
+ }
+
+ /*웹페이지 전체를 감싸는 클래스*/
+ .wrapper {
+ 	/*선형정렬*/
+ 	display: flex;
+ 	flex-direction: column;
+ 	min-height: 100%
+ }
+
+ .wrapper.indexPage {
+ 	/*안의 내용물을 가운데 정렬*/
+ 	justify-content: center;
+ }
+
+ .mainSection {
+ 	display: flex;
+ 	flex-direction: column;
+ 	align-items: center;
+ }
+
+ .mainSection .searchContainer {
+ 	margin-top: 30px;
+ 	width: 100%;
+ 	display: flex;
+ 	flex-direction: column;
+
+ }
+
+ .mainSection .searchContainer .searchBox{
+ 	border: none;
+/* 	box-shadow: 0px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);*/
+ 	height: 44px;
+ 	border-radius: 22px;
+ 	width: 60%;
+ 	outline: none;
+ 	display: flex;
+ 	align-items: center;
+ 	max-width: 500px;
+ 	border: 1px solid #e9e9e9;
+
+ }
+ .searchBoxOnFocused {
+	box-shadow: 0px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+ }
+ .mainSection .searchContainer .searchBox:hover{
+
+   	box-shadow: 0px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+   	
+ }
+
+ .mainSection .searchContainer .searchBox img{
+  	width: 35px;
+  	height: 20px;
+  	margin-right: 13px;
+
+ }
+
+ .mainSection .searchContainer .searchBox input{
+  	flex: 1;
+  	height: 38;
+  	margin-right: 20px;
+  	border: none;
+  	outline: none;
+
+ }
+ .mainSection .searchContainer .searchButton {
+  	margin-top: 10px;
+  	border-radius: 5px;
+  	height: 36px;
+  	width: 100px;
+  	outline: none;
+  	border: none;
+  	font-size: 16px;
+  	cursor: pointer;
+  	color: #858585;
+}
+  .mainSection .searchContainer .searchButton:hover{
+ 	color: #000000;
+ 	border: 1px solid #858585;
+}
+
+  .mainSection .searchContainer form{
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+
+}
+
+ .header{
+ 		background-color: #f6f6f6;
+ 		border-bottom: 1px solid #d3d3d3;
+ }
+
+ .headerContent .logoContainer {
+ 	width: 150px;
+ 	padding: 5px;
+ 	box-sizing: border-box;
+ 	margin-right: 10px;
+ }
+
+ .headerContent .logoContainer img{
+ 	width: 70%;
+ 	margin-left: 20px;
+ }
+
+ .wrapper .headerContent {
+ 	display: flex;
+ 	align-items: center;
+ }
+
+ .headerContent .searchContainer {
+ 	flex: 1;
+ 	/*align-items: center*/
+ }
+
+ .headerContent .searchContainer form{
+ 	margin: 15px 0px 28px 0px;
+ }
+
+ .headerContent .searchBarContainer {
+ 	height: 44px;
+ 	border-radius: 22px;
+ 	background-color : #fff;
+ 	width: 70%;
+ 	max-width: 630px;
+ 	display: flex;
+ 	border: 1px solid #d8d8d8;
+ 	align-items: center;
+ }
+
+ .headerContent .searchBarContainer .searchBarBoxInput {
+ 	flex: 1;
+ 	border: none;
+ 	outline: none;
+ 	padding: 12px;
+ 	font-size: 16px;
+ 	color: #000;
+ 	margin-left: 22px;
+ }
+
+ .headerContent .searchBarContainer .searchBarButton {
+ 	height: 44px;
+ 	width: 44px;
+ 	display: flex;
+ 	justify-content:center;
+ 	background-color: #fff;
+ 	border: none;
+ 	margin-right: 22px;
+ 	outline: none;
+ 	align-items: center;
+ }
+
+ .headerContent .searchBarContainer .searchBarButton img{
+ 	width: 35px
+
+ 	
+ }
+
+  .headerContent .searchBarContainer:hover {
+  	box-shadow: 0px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  }
+
+  .tabContainer {
+  	margin-left: 150px;
+  }
+
+  .tabContainer .tabList{
+  	padding: 0px;
+  	margin: 0px;
+  }
+
+  .tabContainer .tabList li{
+  	display: inline-block;
+  	padding: 0px 16px 12px 16px;
+  	
+  }
+
+  .tabContainer .tabList li a{
+  	text-decoration: none;
+  	color: #858585;
+  }
+
+  .tabContainer .tabList li a:hover{
+	color: #493eff;		
+  }
+
+  .tabContainer .tabList li.active a{
+  	padding-bottom: 10px;
+	border-bottom: 3px solid #493eff;
+	font-weight: bold;
+  }
