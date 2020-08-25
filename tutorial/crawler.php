@@ -174,7 +174,7 @@ function getDetails($url){
 }
 
 
-$siteToCrawl = "http://www.ohmynews.com/";
-folloLinks($siteToCrawl);
+$siteToCrawl = "https://www.ygosu.com/community/real_article/yeobgi/1749306/?page=0&frombest=Y";
+folloImages($siteToCrawl);
 
 ?>

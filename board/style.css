@@ -1,0 +1,28 @@
+table{
+	border-collapse: collapse;
+	text-align: center;
+}
+
+
+
+table, tr, td{
+
+	border: 1px solid #000000;
+/*	table-layout: fixed;*/
+}
+
+table ,tr ,td:nth-child(1){
+	width:200px;
+}
+
+table ,tr ,td:nth-child(2){
+	width:1500px;
+}
+
+table ,tr ,td:nth-child(3){
+	width:300px;
+}
+
+table ,tr ,td:nth-child(4){
+	width:700px;
+}
