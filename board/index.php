@@ -34,7 +34,7 @@
 			if($result = $mysqli->query($query))
 			{
 				while($row = $result->fetch_row()){
-					echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td></tr>";
+					echo "<tr><td>".$row[0]."</td><td>"."<a href='read.php?no=$row[0]'>".$row[1]."</a></td><td>".$row[3]."</td><td>".$row[4]."</td></tr>";
 				}
 			}
 			
@@ -42,6 +42,6 @@
 		</table>
   	   	
 		<button onclick="location.href='newPost.php'">글쓰기</button>
-		<button>글삭제</button>
+		
 	</body>
 </html>
