@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>introduction</title>
+</head>
+<body>
+	<div id="app">
+		
+		<!-- vue instance app내 data의 message를 출력 -->
+		{{ message }}
+		<br> 
+		
+		<!-- text위에 마우스를 올리면  바인딩된 text를 보여줌.-->
+		<span v-bind:title="message"> 
+			내 위에 잠시 마우스를 올리면 동적으로 바인딩된 title을 볼 수 있습니다!
+		</span>
+		<br>
+
+		<!-- v-if문을 통해 seen이 true일 경우에만 message를 출력 -->
+		<p v-if="seen"> seen이 true일 경우에만 글이 보인다 </p>
+		<br>
+
+		<!-- v-for를 이용해 배열 todos의 각 값을 출력한다.
+			todo라는 변수에 todos의 값들이 차례로 한번씩 들어간다.  -->
+		<ul>
+			<li v-for="todo in todos">
+				{{todo.text}}
+			</li>
+		</ul>
+		<br>
+
+		<!-- 버튼을 클릭하면 v-on:click 이벤트 리스너에 의해 reverMessage 함수가 호출되어 message를 뒤집는다. -->
+		<button v-on:click="reverseMessage">메시지 뒤집기</button>
+
+		<!-- component 'my-to-list'를 이용하여 todo의 데이터들을 출력 -->
+		<ul>
+			<my-todo-item 	v-for="todo in todos"
+							v-bind:key = "todo.id"
+							v-bind:toda= "todo">
+			</my-todo-item>
+		</ul>
+
+		<ul>
+			<my-todo-item 	v-for="todo in todos2"
+							v-bind:key = "todo.id"
+							v-bind:toda= "todo">
+			</my-todo-item>			
+		</ul>
+	</div>
+
+	<br>
+	
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+
+		/*compont를 생성하여 각 vue instace에서 재사용*/
+		/*props: vue에서 전달되는 데이터*/
+		/*template: vue가 호출됐을때 사용될 script*/
+		Vue.component('my-todo-item', {
+			props: ['toda'],
+			template: `				
+			<li>
+				<input type="checkbox"
+					v-model="toda.done">
+				<span v-bind:class="{ done: toda.done }">{{ toda.text }}</span>
+			</li>
+			`
+		})
+
+
+		/*el(element): html 에서 사용되는 id. element 를 통해 html의 요소와 연결됨.*/
+		/*data를 통해 변수 설정*/
+		/*methosd를 통해 사용자함수생성 */
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'hello Vue!',
+				seen: true,
+				todos: [
+					{ 	
+						id: '1',
+						text: 'JavaScript 배우기',
+						done: true
+					},
+					{ 
+						id: '2',
+						text: 'Vue 배우기',
+						done: false
+					},
+					{ 
+						id: '3',
+						text: '무언가 멋진 것을 만들기',
+						done: false
+					}
+				],
+				todos2: [
+					{ 	
+						id: '4',
+						text: '잠자기',
+						done: true
+					},
+					{ 
+						id: '5',
+						text: '코골지말기',
+						done: false
+					}
+				]
+			},
+			methods: {
+				reverseMessage: function(){
+					this.message = this.message.split('').reverse().join('')
+				}
+			}
+		})
+
+
+	</script>
+</body>
+</html>
+

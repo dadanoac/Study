@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue tutorial2</title>
+	</head>
+	<body>
+		
+		<div id="myApp">
+			<guriguri v-bind:abr="abr"></guriguri>
+
+			{{ abr }}
+		</div>
+		
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			Vue.component('guriguri', {
+				props: ['abr'],
+				template: `<p> ssadfasafasdf{{ abr }} </p>`
+			})
+			var app = new Vue({
+				el: "#myApp",
+				data:{
+					abr: "abasd"
+				}
+			})
+
+		</script>
+	</body>
+</html>

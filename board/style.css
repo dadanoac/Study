@@ -7,35 +7,70 @@
 }
 
 .header {
-	height: 70px;
-	background-color: #000;
-	flex-direction: row;
+	height: 150px;
+	flex-direction: column;
 	display: flex;
-	align-items: center;
+	
 }
 
-.header .topText{
+.header .headerText {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #3a2d73;
+}
+
+.header .headerText .topText{
  	color: white;
  	text-decoration: none;
  	font-size: 25px;
  	margin: 25px;
- 	
+	width: 60%; 	
  	font-family: "sans-serif";
 
  }
 
+ .header .tabContainer{
+	background-color: #6f8e5d;
+ 	
+ }
+
+  .header .tabContainer .tabList li{
+  	display: inline-block;
+  	padding: 0px 16px 12px 16px;
+  	font-family: "sans-serif";
+  	font-size: 25px;
+ 	text-decoration: none;
+ 	color:white; 	
+  }
+
+  .header .tabContainer .tabList .active {
+  	color: blue;
+  	border-bottom: 3px solid #493eff;
+  }
+  .header .tabContainer .tabList a:visited {
+  	color: blue;
+  }
+
  .content{
  	display:flex;
- 	flex-direction: column;
- 	align-items: center;
+ 	flex-direction: right;
+ 	
  	background-image: url('assets/images/iu_background.png');
  	background-size: cover;
  	height: 100%;
 
  }
+
+ .content .leftContent{
+ 	display:flex;
+ 	flex-direction: column;
+ 	align-items: center;
+ }
  
 .writeButton {
-	margin:15px;
+	margin: 25px 15px 0px 15px;
+
 }
 
  html, body {
@@ -51,7 +86,9 @@
 }
 
 
-
+a{
+	text-decoration: none;
+}
 
 table, tr, td{
 
