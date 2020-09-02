@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue-guide</title>
+</head>
+<body>
+	<style>
+		.normal {
+			color: blue;
+		}
+		.active {
+			color: red;
+		}
+	</style>
+	<div id="app">
+		<div>{{ msg }}</div>
+
+		<!-- v-html tag를 사용하면 data의 html tag가 해석되어 표현된다. -->
+		<div v-html="msg"></div>
+
+		<!-- javaScript의 표현식을 {{}}내에서 사용 가능하다, -->
+		<div> {{ number + 2 }} {{ Math.round(1.7) }}</div>
+
+		<!-- v-bind를 이용하여 class를 동적으로 할당할 수 있다. v-vind를 생략하고 ":class"만을 입력해도 동일하게 동작한다. 
+			v-on을 생략하고 싶을 경우, "@click"으로 입력하면 된다. 보통 코드에서 v-bind와 v-on은 약어로 사용한다.-->
+		<div v-bind:class="className" 
+			v-on:click="changeClassName"> 
+			{{ msg2 }}
+		</div>
+
+
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data:{
+				msg: 'Hello Vue!<br/>Good job~',
+				number: 2,
+				msg2: 'Hello Vue!',
+				className: 'normal'
+			},
+			methods: {
+				changeClassName(){
+					this.className = 'active'
+				}
+			}
+		})
+	</script>
+</body>
+</html>

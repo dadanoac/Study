@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue-guide</title>
+</head>
+<body>
+	<div id="app">
+		<div>{{ msg }}</div>
+		<div>{{ reversedMsg }}</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data:{
+				msg: 'Hello, Vue!'
+			},
+			computed:{
+				reversedMsg:{
+					get(){
+						return this.msg.split('').reverse().join('')
+					},
+					set(value){
+						this.msg = value
+					}
+				}
+			},
+			watch: {
+				//data의 msg의 값이 변경되면 실행
+				msg(newMsg){
+					console.log('New data: ' + newMsg)
+				},
+				reversedMsg (newMsg) {
+					console.log('New reversedMsg: ' + newMsg)
+				}
+			}
+
+			
+		})
+	</script>
+</body>
+</html>

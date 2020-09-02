@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue-guide</title>
+</head>
+<body>
+	<div id="app">
+		<div class="todos">
+			<div v-for="todo in computedTodos"
+			:key="todo.id">
+
+				<input type="checkbox"
+					v-model="todo.done">
+				<span>{{ todo.title }}</span>
+			</div>
+		</div>
+
+		<div>
+			<!-- method가 세번 호출되면 총 세번의 연산을 수행한다. -->
+			<div>{{ reverseMsg() }}</div>
+			<div>{{ reverseMsg() }}</div>
+			<div>{{ reverseMsg() }}</div>
+			<div>-------------------</div>
+			<!-- computed는 한번 호출됐을 때의 결과를 cashing하여 이후에 또 호출되는 경우 값을 재사용한다. -> 결과적으로 연산을 한번만 수행 -->
+			<div>{{ computedReverseMsg }}</div>
+			<div>{{ computedReverseMsg }}</div>
+			<div>{{ computedReverseMsg }}</div>
+			<div>-------------------</div>
+			<div>{{ reverseMsg2 }}</div>
+		</div>
+
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data:{
+				todos: [
+					{ title: '아침기기' },
+					{ title: '점심기기' },
+					{ title: '저녁기기' }
+				],
+				msg: 'Hello, Vue!'
+			},
+			computed: {
+				computedTodos(){
+					/*todos의 값이 변했을때 호출됨*/
+					/*웹에서 받은 data의 경우 index를 갖고있지 않을 수 있으므로, computedTodos를 통해 데이터에 index를 추가*/
+					
+					return this.todos.map((todo, index) => {
+						/*return Object.assign({}, todos, {
+							id:index +1,
+							done: false
+						})*/
+						return {
+							...todo,
+							id: index + 1,
+							done: false
+						}
+					})
+				},
+				computedReverseMsg(){
+					return this.msg.split('').reverse().join('')
+				},
+				reverseMsg2:{
+					// Getter
+					// Getter는 return이 필요함
+					get: function(){
+						return this.msg.split('').reverse().join('')
+					},
+					// Setter
+					// Setter를 통해 data에 값을 넣을 수 있음 : vm.reverseMsg ="value"
+					// Setter는 return이 필요 없음
+					set: function(value){
+						this.msg = value
+					}
+				}
+			},
+			methods: {
+				reverseMsg(){
+					return this.msg.split('').reverse().join('')
+				}
+			}
+		})
+	</script>
+</body>
+</html>
